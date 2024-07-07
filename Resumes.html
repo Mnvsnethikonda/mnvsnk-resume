@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2family=Poppins:wght@300;400;500;600;700;800;900&dispaly=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+:root{
+    --bg-color: #081b29;
+    --text-color: #ededed;
+    --main-color: #00abf0;
+    --second-bg-color: #112e42;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: 0.3s;
+}
+.header.sticky{
+    background: var(--bg-color);
+}
+
+.logo{
+    font-size: 1.7rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.navbar a{
+    font-size: 1.7rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-left: 3.56rem;
+    transition: 0.3s;
+}
+.navbar a:hover, a:active{
+    color: var(--main-color);
+}
+
+#menu-icon{
+    font-size: 3.6rem;
+    color: var(--text-color);
+    cursor: pointer;
+    display: none;
+}
+
+section{
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+.home{
+    display: flex;
+    align-items: center;
+    padding: 0 9%;
+
+}
+.home-content{
+    max-width: 60rem;
+}
+.home-content h1{
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+.home-content h1 span{
+    color: var(--text-color);
+}
+.home-content .text-animate{
+    position: relative;
+    width: 32.8rem;
+}
+
+.home-content .text-animate h3{
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 0.7px var(--main-color);
+}
+.home-content .text-animate h3:hover{
+    background: transparent;
+    color: var(--main-color);
+}
+.home-content  p{
+    font-size: 1.6rem;
+    margin: 2rem 0 2rem;
+}
+
+.btn-box{
+    position: relative;
+    display: flex;
+    justify-content:space-between;
+    width: 34.5rem;
+    height: 5rem;
+    
+}
+.btn-box .btn{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 100%;
+    padding: 1.5rem 2rem;
+    border-radius: 0.8rem;
+    background: var(--main-color);
+    border: 0.2rem solid var(--main-color);
+    color: var(--bg-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    transition: 0.3s;
+    overflow: hidden;
+    letter-spacing: 0.1rem;
+    transition: 0.5s;
+    z-index: 1;
+}
+.btn-box .btn:hover{
+    color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(1){
+    background: transparent;
+    color: var(--main-color);
+}
+.btn-box .btn:nth-child(1):hover{
+    color: var(--bg-color);
+}
+.btn-box .btn:nth-child(1)::before{
+    background: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2){
+    background: transparent;
+    color: var(--main-color);
+}
+.btn-box .btn:nth-child(2):hover{
+    color: var(--bg-color);
+}
+.btn-box .btn:nth-child(2)::before{
+    background: var(--main-color);
+}
+
+.btn-box .btn::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: 0.5s;
+}
+.btn-box .btn:hover::before{
+    width: 100%;
+}
+
+.home-sci{
+    position: absolute;
+    bottom: 20rem;
+    left: 18rem;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+.home-sci a{
+    position: relative;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 36px;
+    background: transparent;
+    border: 0.2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 34px;
+    color: var(--main-color);
+    overflow: hidden;
+}
+.home-sci a::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(10, 58, 193, 0.688);
+    z-index: -1;
+    transition: 0.5s;
+}
+.home-sci a:hover::before{
+    width: 100%;
+}
+.home img{
+    position: absolute;
+    display: flex;
+    width: 40%;
+    bottom: 20%;
+    height: 50%;
+    right: 85px;
+}
+
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 6rem;
+    background: var(--second-bg-color);
+}
+.heading{
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+span{
+    color: var(--main-color);
+}
+
+.about-img{
+    position:relative;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.about-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border:0.2rem solid var(--main-color);
+}
+.about-img .circle-span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: translate(-50%, -50%) rotate(0);
+    border: 0.3rem solid var(--main-color);
+    /*border-top: 0.2rem solid var(--second-bg-color);
+    border-bottom: 0.2rem solid var(--second-bg-color);
+    border-left: 0.2rem solid var(--main-color);
+    border-right: 0.2rem solid var(--main-color);*/
+}
+.about-content{
+    text-align: center;
+}
+.about-content h3{
+    font-size: 2.6rem;
+}
+.about-content p{
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+.btn-box.btns{
+    display: inline;
+    width: 15rem;
+}
+.btn-box.btns a::before{
+    background: var(--second-bg-color);
+}
+
+.education{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: auto;
+    padding-bottom: 5rem;
+
+}
+.education .eduacation-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+.eduacation-row .eduaction-column{
+    flex: 1 1 40rem;
+}
+.education-column .title{
+    font-size: 4rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 0 1.5rem 2rem ;
+    color:rgb(0, 255, 251);
+}
+.education-column .education-box{
+    border-left: 0.21rem solid var(--main-color);
+}
+.education-content{
+    position: relative;
+    padding-left: 2rem;
+    font-size:large;
+}
+.education-content .content{
+    position: relative;
+    padding: 1.5rem;
+    border: 0.2rem solid var(--main-color);
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+.education-content .content::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--second-bg-color);
+    z-index: -1;
+    transition: 0.5s;
+}
+.education-content .content:hover::before{
+    width: 100%;
+}
+.education-content h3{
+    font-size: 2.6rem;
+    margin: 0 0 1.5rem 2rem ;
+}
+
+.education-content p{
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+.education-content .content .year{
+    font-size: 1.5rem;
+    color: var(--main-color);
+    position: relative;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+}
+.education-content .content .year i{
+    padding-right: 0.8rem;
+}
+.eduaction-content .content h3{
+    font-size: 2rem;
+}
+
+.eduaction-content .content p{
+    font-size: 1.6rem;
+    padding-top: 0.5rem;
+}
+
+
+.skills{
+    min-height: auto;
+    padding-bottom: 7rem;
+    background: var(--second-bg-color);
+}
+.skills .skills-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+.skills-row .skills-column{
+    flex: 1 1 40rem;
+}
+.skills-column .title{
+    font-size: 2.5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 0 1.5rem;
+    color:rgb(0, 255, 251);
+}
+.skills-box .skills-content{
+    position: relative;
+    border: 0.2rem solid var(--main-color);
+    border-radius: 1rem;
+    padding: 0.5rem 1.5rem;
+    z-index: 1;
+    overflow: hidden;
+
+}
+.skills-content .progress{
+    padding: 1rem 0;
+}
+.skills-content .progress h3{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.skills-content .progress h3 span{
+    color: var(--text-color);
+}
+.skills-content .progress .bar{
+    height: 2.5rem;
+    border-radius: 1rem;
+    border: 0.2rem solid var(--main-color);
+    padding: 0.2rem;
+    margin: 1rem 0;
+}
+
+.skills-content .progress .bar span{
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: 0.8rem;
+    background: var(--main-color);
+}
+.skills-column:nth-child(1) .skills-content .progress:nth-child(1) .bar span{
+    width: 90%;
+}
+.skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar span{
+    width: 80%;
+}
+.skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar span{
+    width: 60%;
+}
+.skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar span{
+    width: 60%;
+}
+.skills-column:nth-child(1) .skills-content .progress:nth-child(5) .bar span{
+    width: 65%;
+}
+.skills-column:nth-child(1) .skills-content .progress:nth-child(6) .bar span{
+    width: 70%;
+}
+.skills-column:nth-child(1) .skills-content .progress:nth-child(7) .bar span{
+    width: 80%;
+}
+
+.skills-box .skills-content::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+    transition: 0.5s;
+}
+.skills-box .skills-content:hover::before{
+    width: 100%;
+}
+
+.contact{
+    min-height: auto;
+    padding-bottom: 7rem;
+}
+.contact form{
+    max-width: 70rem;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--main-color);
+}
+.contact form .input-box{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.contact form .input-box .input-field{
+    position:relative;
+    width: 49%;
+    margin: 0.8rem 0;
+}
+.contact form .input-box .input-field input,
+.contact form .textarea-field textarea{
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    border: 0.3rem solid var(--main-color);
+    color: var(--text-color);
+    border-radius: 1rem;
+    background: transparent;
+}
+.contact form .input-box .input-field input::placeholder,
+.contact form .textarea-field textarea::placeholder{
+    color: var(--text-color);
+}
+.contact form .textarea-field{
+    position: relative;
+    margin: 0.8rem 0 3.5rem;
+    display: flex;
+
+}
+.contact form .focus{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--second-bg-color);
+    border-radius: 0.6rem;
+    z-index: -1;
+    transition: 0.5s;
+
+}
+.contact form .textarea-field textarea{
+    resize: 100px;
+}
+.contact form .input-box .input-field input:focus~.focus,
+.contact form .input-box .input-field input:valid~.focus,
+.contact form .textarea-field textarea:focus~.focus,
+.contact form .textarea-field textarea:valid~.focus {
+    width: 100%;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background-color: var(--second-bg-color);
+}
+.footer-text{
+
+    font-size: 1.5rem;
+}
+.footer-iconTop{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.9rem;
+    background: var(--main-color);
+    border: 0.2rem solid var(--main-color);
+    border-radius: 0.6rem;
+    z-index: 1;
+    overflow: hidden;
+}
+.footer-iconTop a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-radius: 0.6rem;
+    background: var(--second-bg-color);
+    transition: 0.5s;
+    z-index: -1;
+}
+.footer-iconTop a:hover::before{
+    width: 100%;
+}
+.footer-iconTop a i{
+    font-size: 2.4rem;
+    color: var(--bg-color);
+    transition: 0.5s;
+}
+.footer-iconTop a:hover i{
+    color: var(--main-color);
+}
+
+.project{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: auto;
+    padding-bottom: 5rem;
+
+}
+.project .project-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+.project-row .project-column{
+    flex: 1 1 40rem;
+}
+.project-column .title{
+    font-size: 4rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 0 1.5rem 2rem ;
+    color:rgb(0, 255, 251);
+}
+.project-column .project-box{
+    border-left: 0.21rem solid var(--main-color);
+}
+.project-content{
+    position: relative;
+    padding-left: 2rem;
+    font-size:large;
+}
+.project-content .content{
+    position: relative;
+    padding: 1.5rem;
+    border: 0.2rem solid var(--main-color);
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+.project-content .content::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--second-bg-color);
+    z-index: -1;
+    transition: 0.5s;
+}
+.project-content .content:hover::before{
+    width: 100%;
+}
+.project-content h3{
+    font-size: 2.6rem;
+    margin: 0 0 1.5rem 2rem ;
+}
+
+.project-content p{
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+.project-content .content .year{
+    font-size: 1.5rem;
+    color: var(--main-color);
+    position: relative;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+}
+.project-content .content h3{
+    font-size: 2rem;
+    color: var(--main-color);
+}
+
+.project-content .content p{
+    font-size: 1.6rem;
+    padding-top: 0.5rem;
+    color: var(--text-color);
+}
+
+    </style>
+
+    <!--box icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!--header design-->
+    <header class="header">
+        <a href="#" class="logo">MNVSNK</a>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#project">Project</a>
+            <a href="#content">Contact</a>
+        </nav>
+    </header>
+
+    <!-- home section design -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Hi,<span> M. N V S Nethikonda</span></h1>
+            <div class="text-animate">
+                <h3>Frontend Developer</h3>
+            </div>
+            <p></p>
+            <div class="btn-box">
+                <a href="#" class="btn">Hire Me</a>
+                <a href="#" class="btn">Let's Talk</a>
+            </div>
+        </div>
+
+        <div class="home-sci">
+            <!--<a href="#"><i class='bx bxl-linkedin'></i></a>-->
+            <a href="#"><i class='bx bxl-github'></i></a>
+        </div>
+        <img src="c.png">
+    </section>
+
+    <!-- About section-->
+    <section class="about" id="about">
+        <h2 class="heading">About <span>Me</span></h2>
+
+        <div class="about-img">
+            <img src="My-Image.jpg" alt="">
+            <span class="circle-span"></span>
+        </div>
+
+        <div class="about-content">
+            <h2>Frontend Developer</h2>
+            <p></p>
+            <div class="btn-box btns">
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!--Education sectoin-->
+    <section class="education" id="education">
+        <h2 class="heading">My <span>Journey</span></h2>
+
+        <div class="education-row">
+            <div class="education-column">
+                <h3 class="title">Education</h3>
+
+                <div clas="education-box">
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class='bx bxs-calendar'></i> 2023</div>
+                                <h3> Master of Computer Applications (MCA)</h3>
+                                <p>add your study detals</p>
+                        </div>
+                    </div>
+
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class='bx bxs-calendar'></i> 2020</div>
+                                <h3> Bachelor of Science in Computer Science (BSC)</h3>
+                                <p>add with study details</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Skills section-->
+    <section class="skills" id="skills">
+        <h2 class="heading">My <span>Skills</span></h2>
+
+        <div class="skills-row">
+            <div class="skills-column">
+                <h3 class="title">Technical Skills</h3>
+
+                <div class="skills-box">
+                    <div class="skills-content">
+                        <div class="progress">
+                            <h3>HTML <span>90%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>CSS <span>80%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>JAVASCRIPT <span>60%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>REACT JS<span>60%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>BOOSTRAP <span>65%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>PYTHON <span>70%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>DATA-SCIENCE <span>80%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Projects section-->
+
+    <section class="project" id="project">
+        <h2 class="heading">My <span>Projects</span></h2>
+
+        <div class="project-row">
+            <div class="project-column">
+                <h3 class="title">Predicting Cyberbullying on Social Media</h3>
+
+                <div clas="project-box">
+                    <div class="project-content">
+                        <div class="content">
+                            <div class="year">
+                                <h3>Predicting Cyberbullying on social media in the Big Data 
+                                    Era Using Machine Learning Algorithms Review of Literature and 
+                                    Open Challenges</h3>
+                                <p>These social technologies have created a revolution in user-generated information, online 
+                                    human networks and reach human behaviour-related data.</p>
+                                    <p>The misuse of social technologies such as social media platforms, has introduced a new form 
+                                    of aggression and violence that occurs exclusively online.</p>
+                                <p>Cyberbullying in traditional platforms, such as emails or phone text messages is committed on 
+                                    a limited number of people.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!--Contact details-->
+    <section class="contact" id="content">
+        <h2 class="heading">Contact <span>Me</span></h2>
+
+        <form action="#">
+            <div class="input-box">
+                <div class="input-field">
+                    
+                    <input type="text" id="sur name"placeholder="Sur Name" required>
+                    <span class="focus"></span>
+                </div>
+
+                
+                <div class="input-field">
+                    
+                    <input type="text" id="full name" placeholder="Full Name" required>
+                    <span class="focus"></span>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <div class="input-field">
+                    
+                    <input type="number" id="mobile number" placeholder="Mobile Number" required>
+                    <span class="focus"></span>
+                </div>
+
+                
+                <div class="input-field">
+                    
+                    <input type="text" id="email" placeholder="Email Address" required>
+                    <span class="focus"></span>
+                </div>
+            </div>
+
+            <div class="textarea-field">
+                
+                <textarea name="" id="" cols="30" row="10" placeholder="Your Message" required></textarea>
+                
+            </div>
+
+            <div class="btn-box btns">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </section>
+
+    <!--footer section-->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2024 by Mnvsnk</p> <p>All rights reserved.</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#"><i class='bx bx-chevron-up'></i></a>
+        </div>
+    </footer>
+
+    <script>
+        //scroll section
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('header nav a');
+
+
+window.onscroll =()=>{
+    sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 100;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+
+        if(top >= offset && top < offset + height){
+            //active navbar links
+            navLinks.forEach(links => {
+                links.classList.remove('active');
+                document.querySelector('header nav a[href*='+ id +']').classList.add('active');
+            });
+        }
+    });
+    //sticky header
+    let header=document.querySelector('header');
+    
+    header.classList.toggle('sticky', window.scrollY > 100);
+}
+    </script>
+</body>
+</html>
